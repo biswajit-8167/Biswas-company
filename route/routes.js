@@ -9,6 +9,7 @@ const updateUserProfileController = require('../controller/updateUserProfile');
 const getAllStudentsController = require('../controller/allStudents');
 const getAllAccountantsController = require('../controller/allAccountants');
 const createBatchController = require('../controller/createBatch');
+const getAllBatchesController = require('../controller/allBatch');
  
  
 
@@ -23,6 +24,7 @@ router.get('/user/accountants',authToken,getAllAccountantsController);
 // Batch--router
 
 router.post('/batches',authToken,createBatchController);
+router.get('/all-batches',authToken,getAllBatchesController);
 
 
 module.exports = router;
