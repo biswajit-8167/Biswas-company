@@ -31,7 +31,7 @@ router.post('/batches',authToken,createBatchController);
 router.get('/all-batches',authToken,getAllBatchesController);
 router.get('/batches/:batchId',authToken,getBatchByIdController);
 router.put('/batches/:batchId',authToken,updateBatchController);
-router.delete('/delete-batches/:batchId',authToken,updateBatchController);
+router.delete('/delete-batches/:batchId',authToken,deleteBatchController);
 
 
 

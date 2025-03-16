@@ -19,7 +19,7 @@ async function userRegisterController(req, res) {
         }
 
         // Hash the password
-        const salt = bcrypt.genSaltSync(10);
+        const salt = bcrypt.genSaltSync(process.env.SALT);
         const hashPassword = bcrypt.hashSync(password, salt);
 
         if (!hashPassword) {
@@ -28,11 +28,11 @@ async function userRegisterController(req, res) {
 
         // Create user payload
         const payload = {
-            username, // Use the correct variable name
+            username, 
             email,
             password: hashPassword,
-            profilePicture, // Use the correct variable name
-            role, // Use the role from the request body
+            profilePicture,  
+            role,  
         };
 
         // Save user to database
