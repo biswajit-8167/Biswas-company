@@ -1,4 +1,5 @@
 const ChatModel = require("../modules/chatSchema");
+const UserModel = require("../modules/userSchema");
 
 async function sendMessageController(req, res) {
     try {
@@ -7,6 +8,12 @@ async function sendMessageController(req, res) {
         // Validate required fields
         if (!message || !sentBy) {
             throw new Error("Message and sentBy are required");
+        }
+
+        // Check if the user exists
+        const user = await UserModel.findById(sentBy);
+        if (!user) {
+            throw new Error("User not found");
         }
 
         // Create a new chat message
