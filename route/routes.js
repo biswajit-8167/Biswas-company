@@ -10,6 +10,9 @@ const getAllStudentsController = require('../controller/allStudents');
 const getAllAccountantsController = require('../controller/allAccountants');
 const createBatchController = require('../controller/createBatch');
 const getAllBatchesController = require('../controller/allBatch');
+const getBatchByIdController = require('../controller/getBatchById');
+const updateBatchController = require('../controller/updateBatch');
+const deleteBatchController = require('../controller/deleteBatch');
  
  
 
@@ -21,10 +24,18 @@ router.put('/user/profile/update',authToken,updateUserProfileController);
 router.get('/user/students',authToken,getAllStudentsController);
 router.get('/user/accountants',authToken,getAllAccountantsController);
 
+
 // Batch--router
 
 router.post('/batches',authToken,createBatchController);
 router.get('/all-batches',authToken,getAllBatchesController);
+router.get('/batches/:batchId',authToken,getBatchByIdController);
+router.put('/batches/:batchId',authToken,updateBatchController);
+router.delete('/delete-batches/:batchId',authToken,updateBatchController);
+
+
+
+
 
 
 module.exports = router;
