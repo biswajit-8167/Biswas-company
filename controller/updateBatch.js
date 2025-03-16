@@ -6,6 +6,9 @@ async function updateBatchController(req, res) {
         const { batchId } = req.params;
         const { batchName, batchImage, googleSheetLink, accountantEmail, coursePrice } = req.body;
 
+        console.log("Request Body:", req.body); // Log the request body
+        console.log("Batch ID:", batchId); // Log the batch ID
+
         // Validate required fields
         if (!batchName || !batchImage || !googleSheetLink || !accountantEmail || !coursePrice) {
             throw new Error("All fields are required");
@@ -17,6 +20,8 @@ async function updateBatchController(req, res) {
             throw new Error("Accountant not found");
         }
 
+        console.log("Accountant found:", accountant); // Log the accountant details
+
         // Find the batch by ID and update it
         const updatedBatch = await BatchModel.findByIdAndUpdate(
             batchId,
@@ -24,7 +29,7 @@ async function updateBatchController(req, res) {
                 batchName,
                 batchImage,
                 googleSheetLink,
-                accountant: accountant._id, // Associate the batch with the accountant
+                accountant: accountant._id,  
                 coursePrice,
             },
             { new: true } // Return the updated document
@@ -37,6 +42,8 @@ async function updateBatchController(req, res) {
             throw new Error("Batch not found");
         }
 
+        console.log("Updated Batch:", updatedBatch); // Log the updated batch
+
         // Respond with the updated batch
         res.status(200).json({
             data: updatedBatch,
@@ -45,6 +52,7 @@ async function updateBatchController(req, res) {
             success: true,
         });
     } catch (error) {
+        console.error("Error updating batch:", error); // Log the error
         res.status(400).json({
             message: error.message || error,
             error: true,
