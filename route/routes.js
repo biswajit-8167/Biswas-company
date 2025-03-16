@@ -18,7 +18,7 @@ router.post('/user/login',userLoginController);
 router.get('/user/profile', authToken, getUserProfileController)
 router.put('/user/profile/update',authToken,updateUserProfileController);
 router.get('/user/students',authToken,getAllStudentsController);
-router.get('/user/accountant',authToken,getAllAccountantsController);
+router.get('/user/accountants',authToken,getAllAccountantsController);
 
 // Batch--router
 
