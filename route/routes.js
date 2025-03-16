@@ -7,6 +7,8 @@ const getUserProfileController = require('../controller/userProfile');
  const authToken = require('../middilware/authToken');
 const updateUserProfileController = require('../controller/updateUserProfile');
 const getAllStudentsController = require('../controller/allStudents');
+const getAllAccountantsController = require('../controller/allAccountants');
+ 
  
 
 //User--router
@@ -15,6 +17,7 @@ router.post('/user/login',userLoginController);
 router.get('/user/profile', authToken, getUserProfileController)
 router.put('/user/profile/update',authToken,updateUserProfileController);
 router.get('/user/students',authToken,getAllStudentsController);
+router.get('/user/accountant',authToken,getAllAccountantsController);
 
 
 module.exports = router;
