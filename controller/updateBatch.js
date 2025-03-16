@@ -32,17 +32,16 @@ async function updateBatchController(req, res) {
                 accountant: accountant._id,  
                 coursePrice,
             },
-            { new: true } // Return the updated document
+            { new: true }  
         )
-            .populate('accountant', 'username email') // Populate accountant details
-            .populate('students', 'username email') // Populate students details
-            .populate('createdBy', 'username email'); // Populate createdBy details
+            .populate('accountant', 'username email')  
+            .populate('students', 'username email')  
+            .populate('createdBy', 'username email');  
 
         if (!updatedBatch) {
             throw new Error("Batch not found");
         }
 
-        console.log("Updated Batch:", updatedBatch); // Log the updated batch
 
         // Respond with the updated batch
         res.status(200).json({
