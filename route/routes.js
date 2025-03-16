@@ -17,6 +17,7 @@ const createPaymentController = require('../controller/createPayment');
 const getAllPaymentsController = require('../controller/getAllPayment');
 const getPaymentsByStudentController = require('../controller/getPaymentByStudent');
 const updatePaymentStatusController = require('../controller/updatePaymentStatus');
+const sendMessageController = require('../controller/sendMessage');
  
  
 
@@ -45,6 +46,12 @@ router.post('/payment', authToken,createPaymentController);
 router.get('/all-payments',authToken,getAllPaymentsController);
 router.get('/payments/students/:studentId',authToken,getPaymentsByStudentController);
 router.put('/payment/:paymentId',authToken,updatePaymentStatusController);
+
+
+// chat--router
+
+router.post('/chat',authToken,sendMessageController);
+
 
 
 
