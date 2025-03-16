@@ -16,6 +16,7 @@ const deleteBatchController = require('../controller/deleteBatch');
 const createPaymentController = require('../controller/createPayment');
 const getAllPaymentsController = require('../controller/getAllPayment');
 const getPaymentsByStudentController = require('../controller/getPaymentByStudent');
+const updatePaymentStatusController = require('../controller/updatePaymentStatus');
  
  
 
@@ -43,7 +44,7 @@ router.delete('/delete-batches/:batchId',authToken,deleteBatchController);
 router.post('/payment', authToken,createPaymentController);
 router.get('/all-payments',authToken,getAllPaymentsController);
 router.get('/payments/students/:studentId',authToken,getPaymentsByStudentController);
-
+router.put('/payment/:paymentId',authToken,updatePaymentStatusController);
 
 
 
