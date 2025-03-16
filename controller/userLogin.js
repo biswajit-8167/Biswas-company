@@ -11,7 +11,7 @@ async function userLoginController(req, res) {
         }
 
         if (!password) {
-            throw new Error("Please provide password"); // Corrected error throwing
+            throw new Error("Please provide password");  
         }
 
         const user = await UserModel.findOne({ email });

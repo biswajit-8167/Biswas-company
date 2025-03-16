@@ -16,15 +16,15 @@ async function updateUserProfileController(req, res) {
         const updatePayload = {
             username,
             email,
-            ...(profilePicture && { profilePicture }), // Include profilePicture only if provided
+            ...(profilePicture && { profilePicture }), 
         };
 
         // Update the user profile
         const updatedUser = await userModel.findByIdAndUpdate(
             userId,
             updatePayload,
-            { new: true } // Return the updated document
-        ).select('-password'); // Exclude the password field
+            { new: true }  
+        ).select('-password'); 
 
         if (!updatedUser) {
             throw new Error("User not found");
