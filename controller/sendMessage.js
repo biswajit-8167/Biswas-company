@@ -19,7 +19,7 @@ async function sendMessageController(req, res) {
         // Create a new chat message
         const newMessage = new ChatModel({
             message,
-            screenshot: screenshot || "", // Optional field
+            screenshot: screenshot || "", 
             sentBy,
         });
 

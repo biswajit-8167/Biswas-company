@@ -18,6 +18,7 @@ const getAllPaymentsController = require('../controller/getAllPayment');
 const getPaymentsByStudentController = require('../controller/getPaymentByStudent');
 const updatePaymentStatusController = require('../controller/updatePaymentStatus');
 const sendMessageController = require('../controller/sendMessage');
+const getChatHistoryController = require('../controller/chatHistory');
  
  
 
@@ -51,6 +52,7 @@ router.put('/payment/:paymentId',authToken,updatePaymentStatusController);
 // chat--router
 
 router.post('/chat',authToken,sendMessageController);
+router.get('/chat-history',authToken,getChatHistoryController);
 
 
 
