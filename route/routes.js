@@ -13,6 +13,7 @@ const getAllBatchesController = require('../controller/allBatch');
 const getBatchByIdController = require('../controller/getBatchById');
 const updateBatchController = require('../controller/updateBatch');
 const deleteBatchController = require('../controller/deleteBatch');
+const createPaymentController = require('../controller/createPayment');
  
  
 
@@ -32,6 +33,12 @@ router.get('/all-batches',authToken,getAllBatchesController);
 router.get('/batches/:batchId',authToken,getBatchByIdController);
 router.put('/update-batches/:batchId',authToken,updateBatchController);
 router.delete('/delete-batches/:batchId',authToken,deleteBatchController);
+
+
+
+// payment--router
+
+router.post('/payment', authToken,createPaymentController);
 
 
 
