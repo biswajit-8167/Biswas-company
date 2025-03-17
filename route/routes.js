@@ -19,6 +19,7 @@ const getPaymentsByStudentController = require('../controller/getPaymentByStuden
 const updatePaymentStatusController = require('../controller/updatePaymentStatus');
 const sendMessageController = require('../controller/sendMessage');
 const getChatHistoryController = require('../controller/chatHistory');
+const getDashboardDataController = require('../controller/dashBoardData');
  
  
 
@@ -53,6 +54,10 @@ router.put('/payment/:paymentId',authToken,updatePaymentStatusController);
 
 router.post('/chat',authToken,sendMessageController);
 router.get('/chat-history',authToken,getChatHistoryController);
+
+//Dashboard--router
+
+router.get('/dashboard',authToken,getDashboardDataController);
 
 
 
