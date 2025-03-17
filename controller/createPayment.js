@@ -2,10 +2,10 @@ const UserModel = require("../modules/userSchema");
 
 async function createPaymentController(req, res) {
     try {
-        const { amount, image, dueAmount } = req.body;
+        const { amount, image} = req.body;
 
         // Validate required fields
-        if (!amount || !image || !dueAmount) {
+        if (!amount || !image) {
             throw new Error("Amount and image are required");
         }
 
@@ -21,7 +21,7 @@ async function createPaymentController(req, res) {
         const newPayment = {
             amount,
             image,
-            dueAmount,
+           
             status: 'pending', // Default status
         };
 
